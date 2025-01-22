@@ -4,6 +4,10 @@ This repository contains the implementation of the project **Visual Decoding fro
 
 ## Project Overview
 
+### Report Template 
+
+https://drive.google.com/file/d/155LwJ6GcR300ERv4XUyd86-1xwkU-Luh/view?usp=sharing
+
 ### Dataset
 - **EEG Signals**: Raw EEG data with 128 channels and 491 time points per sample.
 - **Images**: Visual stimuli corresponding to EEG signals.
