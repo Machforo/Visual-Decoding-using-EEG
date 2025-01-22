@@ -86,5 +86,4 @@ Reconstructed images are stored in the `results` folder, and SSIM scores can be 
 - Integrate depth maps more effectively for improved reconstruction fidelity.
 - Develop practical applications like neurofeedback systems for visually impaired users.
 
-## License
-This project is licensed under the MIT License. See `LICENSE` for details.
+
