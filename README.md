@@ -82,7 +82,7 @@ This work opens new pathways in **brain-computer interfaces**, **neuroscience**,
 | EEG Signal | Original Image | Caption | Generated Text | Reconstructed Image | SSIM |
 |------------|----------------|---------|----------------|----------------------|------|
 | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151516.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151526.png) | "a small armadillo..." | "a baby armadillo..." | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151536.png) | 11.02% |
-| ![](https://via.placeholder.com/150x100?text=EEG+2) | ![](https://via.placeholder.com/150x100?text=Original+2) | "a group of people..." | "a group of people..." | ![](https://via.placeholder.com/150x100?text=Generated+2) | 14.32% |
+| ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151752.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151758.png) | "a group of people..." | "a group of people..." | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151809.png) | 14.32% |
 
 ---
 
