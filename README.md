@@ -62,7 +62,7 @@ This work opens new pathways in **brain-computer interfaces**, **neuroscience**,
 
 ## 🧩 Model Architecture
 
-![Model Architecture](https://via.placeholder.com/800x400.png?text=Model+Architecture+(EEG+to+Image))
+![Model Architecture](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20150550.png)
 
 ---
 
