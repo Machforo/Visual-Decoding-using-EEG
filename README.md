@@ -19,7 +19,7 @@ This project explores the decoding of brain activity (EEG signals) to reconstruc
 
 ## 🧩 Model Architecture
 
-![Overall Model Architecture](./assets/overall_model.png)
+![Overall Model Architecture](./assets/Screenshot 2025-06-10 145338.png)
 
 > **Components:**
 > - **EEG Input**: 16740 EEG samples (17 channels, 100 timepoints) across 10 subjects
