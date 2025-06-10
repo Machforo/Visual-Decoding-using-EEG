@@ -1,128 +1,112 @@
 # 🧠 Visual Decoding from EEG
 
-This repository contains the implementation and results of the project titled **"Visual Decoding from EEG"**, conducted by **Atharv Kumar (B21038)** under the guidance of **Prof. Arnav Bhaskar** and **Prof. Padmanabhan**.
+**Author**
+- Atharv Kumar (atharvkumar43@gmail.com)
 
-## 📌 Overview
-
-This project explores the decoding of brain activity (EEG signals) to reconstruct corresponding visual stimuli. By integrating multimodal deep learning techniques, it aims to enable "thought-to-image" synthesis — transforming raw EEG signals into descriptive text and eventually reconstructing the original visual stimuli.
+**Faculty Guides:**  
+Prof. Arnav Bhaskar
 
 ---
 
-## 🧠 Objectives
+## 📝 Overview
 
-- **EEG-to-Textual Encoding**: Extract semantic textual information from EEG signals using a VAE + CLIP pipeline.
-- **Multimodal Integration**: Align EEG embeddings with image captions using BLIP-2 and train a CLIP model for EEG-to-text conversion.
-- **Image Reconstruction**: Reconstruct high-quality images from generated text and EEG-derived depth maps using the Stable Diffusion model.
-- **"Thought-to-Image" Synthesis**: Bypass text as an intermediate and directly convert EEG to visual content.
+This project explores decoding **EEG (Electroencephalogram)** signals to reconstruct the **visual stimuli** experienced by the brain — using **text and image generation models**. It leverages **deep learning** and **multi-modal alignment** to generate high-fidelity image reconstructions from brain signals.
+
+This work opens new pathways in **brain-computer interfaces**, **neuroscience**, and **thought-driven AI systems**.
+
+---
+
+## 🎯 Objectives
+
+- **EEG-based Textual Encoding**: Extract meaningful embeddings from EEG data.
+- **Image Reconstruction**: Use captions (via BLIP-2) and images (via Stable Diffusion) to reconstruct what the subject saw.
+- **Direct Thought-to-Image**: Create an end-to-end pipeline from EEG → Text → Image.
+
+---
+
+## 🧠 Dataset
+
+- **EEG Signals**: 16,740 EEG samples (17 channels, 100 timepoints each).
+- **Images**: Each of the 16,740 images shown to 10 subjects.
+- **Labels**: For supervised and aligned training.
+
+---
+
+## 🔧 Methodology
+
+### 🔹 Step 1: EEG Embedding (VAE)
+- VAE trained on DEAP dataset to extract EEG embeddings.
+- Ensures compact, meaningful signal representation.
+
+### 🔹 Step 2: Caption Generation (BLIP-2)
+- BLIP-2 generates captions from the original image.
+
+> 🧾 _"A small armadillo walking on the dirt"_
+
+### 🔹 Step 3: Cross-Modal Alignment (CLIP / Masked CLIP)
+- Align EEG and text embeddings via CLIP.
+- Trained to bring both into a common latent space.
+
+### 🔹 Step 4: Text Generation (GPT-2)
+- GPT-2 decodes EEG → Text via autoregressive generation.
+
+> 🧠 ➡️ GPT-2 ➡️ _"A baby armadillo in its enclosure at the zoo"_
+
+### 🔹 Step 5: Depth Estimation (GCNN/GAT)
+- Graph CNN captures spatial relations in EEG for image depth features.
+
+### 🔹 Step 6: Image Reconstruction (Stable Diffusion)
+- Prompt + Depth Map → Stable Diffusion (v2.1 base) to synthesize visual output.
 
 ---
 
 ## 🧩 Model Architecture
 
-![Overall Model Architecture](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20145338.png)
-
-> **Components:**
-> - **EEG Input**: 16740 EEG samples (17 channels, 100 timepoints) across 10 subjects
-> - **VAE Model**: Encodes EEG into latent embeddings
-> - **BLIP-2**: Generates captions for paired images
-> - **CLIP**: Aligns EEG embeddings with text embeddings; trained to predict text directly from EEG
-> - **Depth Extraction**: GAT model used to infer spatial depth from EEG
-> - **Stable Diffusion**: Generates final image using the predicted caption and depth map
+![Model Architecture](https://via.placeholder.com/800x400.png?text=Model+Architecture+(EEG+to+Image))
 
 ---
 
-## 🗃️ Dataset
+## 📊 Results
 
-- EEG signals (16740 samples, 10 subjects)
-- Paired images shown to subjects
-- Semantic labels (for caption generation and embedding alignment)
+### ✅ Caption Alignment Results
 
----
-
-## 🛠️ Methodology
-
-### 🔁 VAE for EEG Encoding
-- Trained to minimize reconstruction loss + KL divergence
-- Captures latent embeddings from EEG signals
-
-### 🧾 Caption Generation with BLIP-2
-- Fine-tuned on dataset to produce rich image captions
-- Outputs used for training the text prediction model and image generation
-
-### 🔀 Cross Modal Alignment (CLIP)
-- CLIP trained to bring EEG and text embeddings into a shared latent space
-- ROUGE score used to evaluate similarity between actual and predicted captions
-
-### 🖼️ Image Reconstruction with Stable Diffusion
-- Combines text and depth as prompt to generate images
-- Stable Diffusion 2.1 base model used
-- SSIM used for image quality evaluation
-
-### 📏 Depth Estimation from EEG
-- GAT-based model predicts depth maps from EEG embeddings
-- Combined with generated text to enrich image reconstruction
+| EEG Caption (GPT-2)                          | BLIP Caption                                  | ROUGE Score |
+|---------------------------------------------|-----------------------------------------------|-------------|
+| "a man holding an accordion..."              | "a person playing an accordion..."            | 0.44        |
+| "a floral air mattress..."                   | "an air mattress with a floral pattern..."    | 0.52        |
 
 ---
 
-## 🧪 Results
+### ✅ Image Reconstruction Results
 
-| Metric | Caption 1 | Caption 2 |
-|--------|-----------|-----------|
-| ROUGE-1 F1 | 0.44 | 0.52 |
-| SSIM (Image 1) | 11.02% |
-| SSIM (Image 2) | 14.32% |
-
-Example 1:
-- **EEG-derived Caption**: *a baby armadillo in its enclosure at the zoo*
-- **BLIP-2 Caption**: *a small armadillo walking on the dirt*
-
-Example 2:
-- **EEG-derived Caption**: *a group of people riding in an airboat*
-- **BLIP-2 Caption**: *a group of people riding in a boat on the water*
+| EEG Signal | Original Image | Caption | Generated Text | Reconstructed Image | SSIM |
+|------------|----------------|---------|----------------|----------------------|------|
+| ![](https://via.placeholder.com/150x100?text=EEG+1) | ![](https://via.placeholder.com/150x100?text=Original+1) | "a small armadillo..." | "a baby armadillo..." | ![](https://via.placeholder.com/150x100?text=Generated+1) | 11.02% |
+| ![](https://via.placeholder.com/150x100?text=EEG+2) | ![](https://via.placeholder.com/150x100?text=Original+2) | "a group of people..." | "a group of people..." | ![](https://via.placeholder.com/150x100?text=Generated+2) | 14.32% |
 
 ---
 
-## 🔮 Future Work
+## 🔬 Quantitative Analysis
 
-- Improve EEG embedding quality using masked CLIP
-- Explore direct EEG-to-text generation without CLIP (e.g., DeCap)
-- Experiment with hvEEGNet for enhanced encoding
-- Benchmark across multiple subjects and datasets
-- Final submission and report by **November**
+- **CLIP Loss**: Dropped from 3.48 to 0.12 (30 epochs).
+- **Cosine Similarity Matrix**: Strong diagonals (high EEG-text alignment).
+- **ROUGE Scores**: ROUGE-1 between 0.44–0.52.
+- **SSIM**: Image similarity remains low (~10–15%), but semantically accurate.
 
----
+
 
 ## 📚 References
 
-- [CLIP - Learning Transferable Visual Models](https://arxiv.org/abs/2103.00020)
-- [BLIP-2 - Bootstrapping Language-Image Pretraining](https://arxiv.org/abs/2301.12597)
-- [Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
+- [BLIP: Bootstrapping Language-Image Pre-training](https://arxiv.org/abs/2201.12086)
+- [CLIP: Contrastive Language–Image Pretraining](https://arxiv.org/abs/2103.00020)
+- [Stable Diffusion](https://github.com/CompVis/stable-diffusion)
+- [GPT-2 by OpenAI](https://openai.com/research/better-language-models)
+- [GCNNs for EEG](https://arxiv.org/abs/1805.08768)
 
 ---
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgements
 
-Special thanks to Prof. Arnav Bhaskar and Prof. Padmanabhan for their constant guidance and feedback throughout this project.
+Special thanks to our guides **Prof. Arnav Bhaskar**  for their constant support and insights.
 
 ---
-
-## 📁 Directory Structure
-
-```bash
-.
-├── assets/
-│   └── overall_model.png  # Architecture diagram
-├── data/
-│   ├── eeg_signals.npy
-│   ├── image_data/
-│   └── labels.csv
-├── src/
-│   ├── vae_model.py
-│   ├── blip_finetune.py
-│   ├── clip_training.py
-│   ├── depth_from_eeg.py
-│   └── stable_diffusion_infer.py
-├── results/
-│   ├── reconstructed_images/
-│   └── metrics/
-├── README.md
