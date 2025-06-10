@@ -81,8 +81,8 @@ This work opens new pathways in **brain-computer interfaces**, **neuroscience**,
 
 | EEG Signal | Original Image | Caption | Generated Text | Reconstructed Image | SSIM |
 |------------|----------------|---------|----------------|----------------------|------|
-| ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151516.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151526.png) | "a small armadillo..." | "a baby armadillo..." | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151536.png) | 11.02% |
-| ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151752.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151758.png) | "a group of people..." | "a group of people..." | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151809.png) | 14.32% |
+| ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151516.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151526.png) | "a small armadillo walking in the dirt" | "a baby armadillo enclosure at the zoo" | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151536.png) | 11.02% |
+| ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151752.png) | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151758.png) | "a group of people riding on a boat" | "a group of people in an airboat" | ![](https://github.com/Machforo/Visual-Decoding-using-EEG/blob/main/Screenshot%202025-06-10%20151809.png) | 14.32% |
 
 ---
 
